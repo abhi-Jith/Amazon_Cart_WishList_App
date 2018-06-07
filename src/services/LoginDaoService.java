@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import databaseConnectivity.DBUtil;
-
 public class LoginDaoService {
 	Connection connection = null;
 	boolean validateFlag = false;
@@ -21,7 +19,7 @@ public class LoginDaoService {
 				preparedStatement.setString(2, password);
 				ResultSet resultset = preparedStatement.executeQuery();
 
-				if (resultset.next()) {
+				if (resultset != null) {
 					validateFlag = true;
 				}
 

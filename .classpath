@@ -5,8 +5,5 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Users/sabhi/Desktop/marlabs/apache-tomcat-7.0.88/lib/servlet-api.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/oracle-ex/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc5.jar"/>
-	<classpathentry kind="lib" path="C:/oracle-ex/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="C:/oracle-ex/app/oracle/product/11.2.0/server/jdbc/lib/ojdbc6_g.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
