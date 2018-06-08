@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginServlet
@@ -37,6 +38,8 @@ public class LoginServlet extends HttpServlet {
 		RequestDispatcher dispatcher = null;
 
 		if (loginDaoService.validateUser(userName, passWord)) {
+			HttpSession session = req.getSession();
+			session.setAttribute("user", userName);
 			dispatcher = req.getRequestDispatcher("servlet2");
 			dispatcher.forward(req, resp);
 		} else {

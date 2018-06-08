@@ -14,12 +14,16 @@ public class LoginDaoService {
 		if (connection != null) {
 			try {
 				PreparedStatement preparedStatement = connection
-						.prepareStatement("select * from userTable where userName = ? and password =?");
+						.prepareStatement("select * from userTable where username =? and password =?");
 				preparedStatement.setString(1, userName);
 				preparedStatement.setString(2, password);
 				ResultSet resultset = preparedStatement.executeQuery();
 
 				if (resultset != null) {
+					while (resultset.next()) {
+						System.out.println("Result present");
+						System.out.println(resultset.getString("USERNAME"));
+					}
 					validateFlag = true;
 				}
 
