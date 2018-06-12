@@ -36,12 +36,13 @@ public class LoginServlet extends HttpServlet {
 		System.out.println("password=" + passWord);
 
 		RequestDispatcher dispatcher = null;
-
-		if (loginDaoService.validateUser(userName, passWord)) {
+		boolean status = loginDaoService.validateUser(userName, passWord);
+		System.out.println("status=" + status);
+		if (status) {
 			HttpSession session = req.getSession();
 			session.setAttribute("user", userName);
-			resp.sendRedirect("Product.jsp");
-			// dispatcher = req.getRequestDispatcher("productList.html");
+			resp.sendRedirect("Products.jsp");
+			// dispatcher = req.getRequestDispatcher("Products.jsp");
 			// dispatcher.forward(req, resp);
 		} else {
 			System.out.println("Invalid credentials." + "\n" + "Please enter the correct username and password.");

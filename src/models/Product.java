@@ -6,7 +6,7 @@ public class Product {
 	private String productInfo;
 	private Long productPrice;
 
-	private Long productPriceUnit;
+	private String productPriceUnit;
 
 	/**
 	 * @param productId
@@ -15,7 +15,7 @@ public class Product {
 	 * @param productPrice
 	 * @param productPriceUnit
 	 */
-	public Product(Long productId, String productName, String productInfo, Long productPrice, Long productPriceUnit) {
+	public Product(Long productId, String productName, String productInfo, Long productPrice, String productPriceUnit) {
 		this.productId = productId;
 		this.productName = productName;
 		this.productInfo = productInfo;
@@ -61,11 +61,11 @@ public class Product {
 		this.productPrice = productPrice;
 	}
 
-	public Long getProductPriceUnit() {
+	public String getProductPriceUnit() {
 		return productPriceUnit;
 	}
 
-	public void setProductPriceUnit(Long productPriceUnit) {
+	public void setProductPriceUnit(String productPriceUnit) {
 		this.productPriceUnit = productPriceUnit;
 	}
 

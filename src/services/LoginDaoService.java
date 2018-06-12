@@ -5,33 +5,41 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LoginDaoService {
-	public Connection connection = null;
-	boolean validateFlag = false;
+import database.DBUtil;
 
-	public boolean validateUser(String userName, String password) {
+public class LoginDaoService {
+	public static Connection connection = null;
+
+	public boolean validateUser(String userName, String passWord) {
+		boolean validateFlag = false;
 		connection = DBUtil.getConnection();
 		if (connection != null) {
+
+			System.out.println("inside connection != null");
 			try {
 				PreparedStatement preparedStatement = connection
-						.prepareStatement("select * from userTable where username =? and password =?");
+						.prepareStatement("select * from usertable where username =? and password =?");
 				preparedStatement.setString(1, userName);
-				preparedStatement.setString(2, password);
-				ResultSet resultset = preparedStatement.executeQuery();
+				preparedStatement.setString(2, passWord);
 
-				if (resultset != null) {
-					while (resultset.next()) {
+				ResultSet resultSet = preparedStatement.executeQuery();
+
+				if (!resultSet.next()) {
+					System.out.println("inside resultset != null");
+
+					validateFlag = false;
+				} else {
+					while (resultSet.next()) {
 						System.out.println("Result present");
-						System.out.println(resultset.getString("USERNAME"));
+						System.out.println(resultSet.getString("USERNAME"));
 					}
+					System.out.println("Invalid Credentials");
 					validateFlag = true;
 				}
 
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		} else if (connection == null) {
-			System.out.println("Connection failed");
 		}
 		return validateFlag;
 	}
