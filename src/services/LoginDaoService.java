@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class LoginDaoService {
-	Connection connection = null;
+	public Connection connection = null;
 	boolean validateFlag = false;
 
 	public boolean validateUser(String userName, String password) {

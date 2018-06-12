@@ -5,9 +5,9 @@ import java.util.List;
 public class Cart {
 
 	private Long cartId;
-	private Long cartName;
+	private Long quantity;
 	private Long cartTotal;
-	
+
 	// Mapping entity @ 1-M
 	private List<Product> products = null;
 
@@ -17,9 +17,9 @@ public class Cart {
 	 * @param cartTotal
 	 * @param products
 	 */
-	public Cart(Long cartId, Long cartName, Long cartTotal, List<Product> products) {
+	public Cart(Long cartId, Long quantity, Long cartTotal, List<Product> products) {
 		this.cartId = cartId;
-		this.cartName = cartName;
+		this.quantity = quantity;
 		this.cartTotal = cartTotal;
 		this.products = products;
 	}
@@ -32,12 +32,12 @@ public class Cart {
 		this.cartId = cartId;
 	}
 
-	public Long getCartName() {
-		return cartName;
+	public Long getQuantity() {
+		return quantity;
 	}
 
-	public void setCartName(Long cartName) {
-		this.cartName = cartName;
+	public void setQuantity(Long quantity) {
+		this.quantity = quantity;
 	}
 
 	public Long getCartTotal() {
@@ -55,7 +55,5 @@ public class Cart {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
-	
-	
 
 }

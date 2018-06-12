@@ -40,8 +40,9 @@ public class LoginServlet extends HttpServlet {
 		if (loginDaoService.validateUser(userName, passWord)) {
 			HttpSession session = req.getSession();
 			session.setAttribute("user", userName);
-			dispatcher = req.getRequestDispatcher("servlet2");
-			dispatcher.forward(req, resp);
+			resp.sendRedirect("Product.jsp");
+			// dispatcher = req.getRequestDispatcher("productList.html");
+			// dispatcher.forward(req, resp);
 		} else {
 			System.out.println("Invalid credentials." + "\n" + "Please enter the correct username and password.");
 			dispatcher = req.getRequestDispatcher("index.html");

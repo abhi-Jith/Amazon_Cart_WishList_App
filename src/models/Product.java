@@ -23,6 +23,12 @@ public class Product {
 		this.productPriceUnit = productPriceUnit;
 	}
 
+	/**
+	 * 
+	 */
+	public Product() {
+	}
+
 	public Long getProductId() {
 		return productId;
 	}
